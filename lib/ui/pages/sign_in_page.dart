@@ -145,7 +145,10 @@ class SignInPage extends StatelessWidget {
                     const SizedBox(
                       height: 50,
                     ),
-                    SizedBox(
+                 
+                  ],
+                ),
+                   SizedBox(
                       width: double.infinity,
                       height: 24,
                       child: TextButton(
@@ -169,10 +172,9 @@ class SignInPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ],
-                ),
               ],
             ),
+            
           )
         ],
       ),
