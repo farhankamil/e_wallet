@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:e_wallet/ui/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
 
@@ -17,12 +16,7 @@ class _SplashPageState extends State<SplashPage> {
     Timer(
       const Duration(seconds: 2),
       () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const OnboardingPage(),
-          ),
-        );
+        Navigator.pushNamed(context, '/onboarding');
       },
     );
   }
