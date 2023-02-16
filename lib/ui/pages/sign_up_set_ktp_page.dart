@@ -1,10 +1,9 @@
 import 'package:e_wallet/shared/theme.dart';
 import 'package:e_wallet/ui/widgets/buttons.dart';
-import 'package:e_wallet/ui/widgets/forms.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class SignUpSetKtpProfilePage extends StatelessWidget {
+  const SignUpSetKtpProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,51 +50,46 @@ class SignUpPage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // todo Name input
-                const CustomFormField(
-                  title: 'Full Name',
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: lightBackgroundColor,
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/img_profile.png',
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                // todo Email input
-                const CustomFormField(
-                  title: 'Email Addres',
+                Text(
+                  'Passport/ID Card',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 18,
+                    fontWeight: medium,
+                  ),
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
-                // todo password input
-                const CustomFormField(
-                  title: 'Password',
-                  obscureText: true,
-                ),
-
                 const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/sign-up-set-profile',
-                    );
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 60,
           ),
           CustomTextButton(
-            title: 'Sign In',
-            onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
-            },
+            title: 'Skip for Now',
+            onPressed: () {},
           )
         ],
       ),

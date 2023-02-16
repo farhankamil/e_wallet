@@ -1,6 +1,8 @@
 import 'package:e_wallet/ui/pages/onboarding_page.dart';
 import 'package:e_wallet/ui/pages/sign_in_page.dart';
 import 'package:e_wallet/ui/pages/sign_up_page.dart';
+import 'package:e_wallet/ui/pages/sign_up_set_profile_page.dart';
+import 'package:e_wallet/ui/pages/sign_up_set_ktp_page.dart';
 import 'package:e_wallet/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => const OnboardingPage(),
         '/sign-in': (context) => const SignInPage(),
         '/sign-up': (context) => const SignUpPage(),
+        '/sign-up-set-profile': (context) => const SignUpSetProfilePage(),
+        '/sign-up-upload-ktp': (context) => const SignUpSetKtpProfilePage(),
       },
     );
   }

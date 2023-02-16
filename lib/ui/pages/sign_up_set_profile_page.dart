@@ -3,8 +3,8 @@ import 'package:e_wallet/ui/widgets/buttons.dart';
 import 'package:e_wallet/ui/widgets/forms.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class SignUpSetProfilePage extends StatelessWidget {
+  const SignUpSetProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,39 +51,62 @@ class SignUpPage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // todo Name input
-                const CustomFormField(
-                  title: 'Full Name',
+                // Container(
+                //   width: 120,
+                //   height: 120,
+                //   decoration: BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     color: lightBackgroundColor,
+                //   ),
+                //   child: Center(
+                //     child: Image.asset(
+                //       'assets/ic_upload.png',
+                //       width: 32,
+                //     ),
+                //   ),
+                // ),
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        'assets/img_profile.png',
+                      ),
+                    ),
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/ic_upload.png',
+                      width: 32,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                // todo Email input
-                const CustomFormField(
-                  title: 'Email Addres',
+                Text(
+                  'Shayna Hanna',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 18,
+                    fontWeight: medium,
+                  ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 30,
                 ),
-                // todo password input
-                const CustomFormField(
-                  title: 'Password',
-                  obscureText: true,
+             const   CustomFormField(
+                  title: 'Set PIN (6 digit number)',
                 ),
-
                 const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/sign-up-set-profile',
-                    );
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -91,12 +114,6 @@ class SignUpPage extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          CustomTextButton(
-            title: 'Sign In',
-            onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
-            },
-          )
         ],
       ),
     );
