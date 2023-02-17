@@ -78,12 +78,12 @@ class SignUpSetProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: Center(
-                    child: Image.asset(
-                      'assets/ic_upload.png',
-                      width: 32,
-                    ),
-                  ),
+                  // child: Center(
+                  //   child: Image.asset(
+                  //     'assets/ic_upload.png',
+                  //     width: 32,
+                  //   ),
+                  // ),
                 ),
                 const SizedBox(
                   height: 16,
@@ -98,15 +98,18 @@ class SignUpSetProfilePage extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-             const   CustomFormField(
+                const CustomFormField(
                   title: 'Set PIN (6 digit number)',
+                  obscureText: true,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign-up-set-ktp');
+                  },
                 ),
               ],
             ),

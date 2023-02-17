@@ -2,8 +2,8 @@ import 'package:e_wallet/shared/theme.dart';
 import 'package:e_wallet/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
-class SignUpSetKtpProfilePage extends StatelessWidget {
-  const SignUpSetKtpProfilePage({super.key});
+class SignUpSetKtpPage extends StatelessWidget {
+  const SignUpSetKtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SignUpSetKtpProfilePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Join Us to Unlock\nYour Growth',
+            'Verify Your\nAccount',
             style: blackTextStyle.copyWith(
               fontSize: 20,
               fontWeight: semiBold,
@@ -60,10 +60,26 @@ class SignUpSetKtpProfilePage extends StatelessWidget {
                   ),
                   child: Center(
                     child: Image.asset(
-                      'assets/img_profile.png',
+                      'assets/ic_upload.png',
+                      width: 32,
                     ),
                   ),
                 ),
+                // Container(
+                //   width: 120,
+                //   height: 120,
+                //   decoration: const BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     image: DecorationImage(
+                //       fit: BoxFit.cover,
+                //       image: AssetImage(
+                //         'assets/img_profile.png',
+                //       ),
+                //     ),
+                //   ),
+
+                // ),
+
                 const SizedBox(
                   height: 16,
                 ),
@@ -75,7 +91,7 @@ class SignUpSetKtpProfilePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 CustomFilledButton(
                   title: 'Continue',
@@ -89,7 +105,9 @@ class SignUpSetKtpProfilePage extends StatelessWidget {
           ),
           CustomTextButton(
             title: 'Skip for Now',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign-up-success-page');
+            },
           )
         ],
       ),

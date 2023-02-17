@@ -105,18 +105,19 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ? Column(
                           children: [
                             CustomFilledButton(
-                              title: 'Get Started',
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/sign-up');
-                              },
-                            ),
+                                title: 'Get Started',
+                                onPressed: () {
+                                  Navigator.pushNamedAndRemoveUntil(
+                                      context, '/sign-up', (route) => false);
+                                }),
                             const SizedBox(
                               height: 20,
                             ),
                             CustomTextButton(
                               title: 'Sign In',
                               onPressed: () {
-                                Navigator.pushNamed(context, '/sign-in'); 
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context, '/sign-in', (route) => false);
                               },
                             )
                           ],
