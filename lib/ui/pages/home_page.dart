@@ -1,4 +1,8 @@
 import 'package:e_wallet/shared/theme.dart';
+import 'package:e_wallet/ui/widgets/home_latest_transaction_item.dart';
+import 'package:e_wallet/ui/widgets/home_service_item.dart';
+import 'package:e_wallet/ui/widgets/home_user_item.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -80,6 +84,9 @@ class HomePage extends StatelessWidget {
           buildfProfile(),
           buildWalletcard(),
           buildLevel(),
+          buildServices(),
+          buildLatestTransactions(),
+          buildSendAgain(),
         ],
       ),
     );
@@ -261,6 +268,166 @@ class HomePage extends StatelessWidget {
               backgroundColor: lightBackgroundColor,
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildServices() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Do Something',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HomeServiceItem(
+                iconUrl: 'assets/ic_topup.png',
+                title: 'Top Up',
+                onTap: () {},
+              ),
+              HomeServiceItem(
+                iconUrl: 'assets/ic_send.png',
+                title: 'Send',
+                onTap: () {},
+              ),
+              HomeServiceItem(
+                iconUrl: 'assets/ic_withdraw.png',
+                title: 'Withdraw',
+                onTap: () {},
+              ),
+              HomeServiceItem(
+                iconUrl: 'assets/ic_more.png',
+                title: 'More',
+                onTap: () {},
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildLatestTransactions() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Latest Transaction',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(
+              top: 14,
+            ),
+            padding: const EdgeInsets.all(
+              22,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: whiteColor,
+            ),
+            child: Column(
+              children: const [
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_topup.png',
+                  title: 'Top Up',
+                  time: 'Yesterday',
+                  value: '+ 450.000',
+                ),
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_cashback.png',
+                  title: 'Cashback',
+                  time: 'Sep 11',
+                  value: '+ 22.000',
+                ),
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_withdraw.png',
+                  title: 'Withdraw',
+                  time: 'Sep 2',
+                  value: '- 5.000',
+                ),
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_transfer.png',
+                  title: 'Transfer',
+                  time: 'Aug 27',
+                  value: '- 123.500',
+                ),
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_checkout.png',
+                  title: 'Electric',
+                  time: 'Feb 18',
+                  value: '- 12.300.000',
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildSendAgain() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Send Again',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: const [
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend1.png',
+                  username: 'yuanita',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend2.png',
+                  username: 'jani',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend3.png',
+                  username: 'urip',
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend4.png',
+                  username: 'masa',
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
