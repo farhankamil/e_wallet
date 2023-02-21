@@ -9,7 +9,6 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackgroundColor,
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
@@ -40,7 +39,7 @@ class SignUpPage extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Container(
+            Container(
             padding: const EdgeInsets.all(
               22,
             ),

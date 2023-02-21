@@ -3,39 +3,22 @@ import 'package:e_wallet/ui/widgets/buttons.dart';
 import 'package:e_wallet/ui/widgets/forms.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class ProfileEditPage extends StatelessWidget {
+  const ProfileEditPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Edit Profile',
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
         ),
         children: [
-          Container(
-            width: 155,
-            height: 50,
-            margin: const EdgeInsets.only(
-              top: 100,
-              bottom: 100,
-            ),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/img_logo_light.png',
-                ),
-              ),
-            ),
-          ),
-          Text(
-            'Sign In &\nGrow Your Finance',
-            style: blackTextStyle.copyWith(
-              fontSize: 20,
-              fontWeight: semiBold,
-            ),
-          ),
           const SizedBox(
             height: 30,
           ),
@@ -52,50 +35,41 @@ class SignInPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // todo Email input
+                const CustomFormField(
+                  title: 'Username',
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                const CustomFormField(
+                  title: 'Full Name',
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
                 const CustomFormField(
                   title: 'Email Addres',
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                // todo password input
                 const CustomFormField(
                   title: 'Password',
                   obscureText: true,
                 ),
                 const SizedBox(
-                  height: 8,
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot Password',
-                    style: blueTextStyle,
-                  ),
-                ),
-                const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
-                  title: 'Sign In',
+                  title: 'Update Now',
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
-                        context, '/home', (route) => false);
-                   },
+                        context, '/profile-edit-success', (route) => false);
+                  },
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 50,
-          ),
-          CustomTextButton(
-            title: 'Create New Account',
-            onPressed: () {
-              Navigator.pushNamed(context, '/sign-up');
-            },
-          )
         ],
       ),
     );
