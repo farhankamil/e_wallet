@@ -1,3 +1,4 @@
+import 'package:e_wallet/shared/shared_method.dart';
 import 'package:e_wallet/shared/theme.dart';
 import 'package:e_wallet/ui/widgets/home_latest_transaction_item.dart';
 import 'package:e_wallet/ui/widgets/home_service_item.dart';
@@ -211,7 +212,7 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle,
           ),
           Text(
-            'Rp 12.500',
+            formatCurrency(12500),
             style: whiteTextStyle.copyWith(
               fontSize: 24,
               fontWeight: semiBold,
@@ -254,7 +255,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'of Rp 20.000',
+                'of ${formatCurrency(12500)}',
                 style: blackTextStyle.copyWith(
                   fontWeight: semiBold,
                 ),
@@ -321,7 +322,12 @@ class HomePage extends StatelessWidget {
               HomeServiceItem(
                 iconUrl: 'assets/ic_more.png',
                 title: 'More',
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const MoreDialog(),
+                  );
+                },
               ),
             ],
           ),
@@ -357,36 +363,36 @@ class HomePage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              children: const [
+              children: [
                 HomeLatestTransaction(
                   iconUrl: 'assets/ic_transaction_topup.png',
                   title: 'Top Up',
                   time: 'Yesterday',
-                  value: '+ 450.000',
+                  value: '+ ${formatCurrency(450000, symbol: '')}',
                 ),
                 HomeLatestTransaction(
                   iconUrl: 'assets/ic_transaction_cashback.png',
                   title: 'Cashback',
                   time: 'Sep 11',
-                  value: '+ 22.000',
+                  value: '+ ${formatCurrency(22000, symbol: '')}',
                 ),
                 HomeLatestTransaction(
                   iconUrl: 'assets/ic_transaction_withdraw.png',
                   title: 'Withdraw',
                   time: 'Sep 2',
-                  value: '- 5.000',
+                  value: '- ${formatCurrency(5000, symbol: '')}',
                 ),
                 HomeLatestTransaction(
                   iconUrl: 'assets/ic_transaction_transfer.png',
                   title: 'Transfer',
                   time: 'Aug 27',
-                  value: '- 123.500',
+                  value: '- ${formatCurrency(123500, symbol: '')}',
                 ),
                 HomeLatestTransaction(
                   iconUrl: 'assets/ic_transaction_checkout.png',
                   title: 'Electric',
                   time: 'Feb 18',
-                  value: '- 12.300.000',
+                  value: '- ${formatCurrency(12300000, symbol: '')}',
                 ),
               ],
             ),
@@ -462,7 +468,7 @@ class HomePage extends StatelessWidget {
             height: 14,
           ),
           Wrap(
-            spacing: 17,
+            spacing: 34,
             runSpacing: 18,
             children: const [
               HomeTipsItem(
@@ -491,6 +497,85 @@ class HomePage extends StatelessWidget {
             height: 50,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MoreDialog extends StatelessWidget {
+  const MoreDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.zero,
+      alignment: Alignment.bottomCenter,
+      content: Container(
+        height: 326,
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: lightBackgroundColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Do More With Us',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            const SizedBox(
+              height: 13,
+            ),
+            Wrap(
+              spacing: 37,
+              alignment: WrapAlignment.center,
+              runSpacing: 25,
+              children: [
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_data.png',
+                  title: 'More',
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/data-provider',
+                    );
+                  },
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_water.png',
+                  title: 'Water',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_stream.png',
+                  title: 'Stream',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_movie.png',
+                  title: 'Movie',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_food.png',
+                  title: 'Food',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_travel.png',
+                  title: 'Travel',
+                  onTap: () {},
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

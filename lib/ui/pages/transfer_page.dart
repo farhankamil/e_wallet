@@ -134,7 +134,7 @@ Widget buildResult() {
               isSelected: true,
             ),
           ],
-        )
+        ),
       ],
     ),
   );

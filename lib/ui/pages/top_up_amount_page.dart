@@ -15,22 +15,22 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: '0');
 
-  // @override
-  // void iniState() {
-  //   super.initState();
-  //   amountController.addListener(() {
-  //     final text = amountController.text;
-  //     amountController.value = amountController.value.copyWith(
-  //       text: NumberFormat.currency(
-  //         locale: 'id',
-  //         decimalDigits: 0,
-  //         symbol: '',
-  //       ).format(
-  //         int.parse(text),
-  //       ),
-  //     );
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          decimalDigits: 0,
+          symbol: '',
+        ).format(
+          int.parse(text.replaceAll('.', '')),
+        ),
+      );
+    });
+  }
 
   addAmount(String number) {
     if (amountController.text == '0') {
@@ -47,7 +47,7 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
         amountController.text = amountController.text
             .substring(0, amountController.text.length - 1);
 
-        if (amountController.text == '') {
+        if (amountController.text.isEmpty) {
           amountController.text = '0';
         }
       });
