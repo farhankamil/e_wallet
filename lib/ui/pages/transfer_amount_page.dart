@@ -15,6 +15,23 @@ class _TransferAmountPageState extends State<TransferAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: '0');
 
+  @override
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          decimalDigits: 0,
+          symbol: '',
+        ).format(
+          int.parse(text.replaceAll('.', '')),
+        ),
+      );
+    });
+  }
+
   addAmount(String number) {
     if (amountController.text == '0') {
       amountController.text = '';
